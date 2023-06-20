@@ -12,7 +12,7 @@ def generate_py_chart(labels, values):
   fig, ax = plot.subplots()
   ax.pie(values, labels=labels)
   ax.axis('equal')
-  plot.savefig('pie.png')
+  plot.savefig('chart_pie_final.png')
   plot.close()
 
 
