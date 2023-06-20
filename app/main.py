@@ -1,13 +1,21 @@
 import utils
 import read_csv
 import charts
+import pandas as pd
 
 
 def run():
+  
+  df = pd.read_csv('data.csv')
+  df = df[df['Continent']== 'Africa']
+  countries = df['Country'].values
+  percentage = df['World Population Percentage'].values
+  charts.generate_py_chart(countries, percentage)
+  
+ 
   data = read_csv.read_csv('data.csv')
   data = list(filter(lambda item: item['Continent'] == 'South America', data))
-  labels, values = utils.get_population_percentage(data)
-  charts.generate_py_chart(labels, values)
+  # labels, values = utils.get_population_percentage(data)
   
   country = input('Type Country: ')
   result = utils.population_by_counter(data, country)
